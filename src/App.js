@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Title from './components/Title';
+import SongTitles from './components/SongTitles';
+import Canvas from './components/Canvas';
+import Lyrics from './components/Lyrics';
 
 function App() {
+  const [selectedSong, setSelectedSong] = useState('');
+  console.log('selectedSong', selectedSong);
+  console.log('setSelectedSong', setSelectedSong);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title />
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+        <SongTitles />
+        <Canvas />
+        <Lyrics />
+      </div>
     </div>
   );
 }
